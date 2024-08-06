@@ -1,0 +1,15 @@
+<div>
+  <h1>Lista de Tareas</h1>
+  <input #todoTitle type="text" placeholder="nueva tarea" />
+  <button (click)="addTodo(todoTitle.value); todoTitle.value=''">Agregar</button>
+  <ul>
+    @for(todo of todos; track todo.id){
+    <li>
+      <span [class.completed]="todo.completed">{{ todo.title }}</span>
+      <button (click)="toggleTodoCompletion(todo.id)">Terminado</button>
+      <button (click)="removeTodo(todo.id)">Eliminar</button>
+    </li>
+  }
+  </ul>
+</div>
+
